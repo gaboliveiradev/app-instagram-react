@@ -11,7 +11,7 @@ import 'firebase/compat/functions';
  * Add o array de dados de conexão dentro da função firebase.initializeApp(), para desta forma,
  * termos acesso a algumas informações adicionais como database, autenticação, entre outros...
  */
-const firebaseApp = firebase.initializeApp({
+const firebaseConfig = firebase.initializeApp({
     apiKey: "AIzaSyDMnA2lb6_3JTDiln5QcntG-qk0prRThKw",
     authDomain: "instagram-clone-c7cb1.firebaseapp.com",
     projectId: "instagram-clone-c7cb1",
@@ -21,9 +21,9 @@ const firebaseApp = firebase.initializeApp({
     measurementId: "G-QEPW42Z59V"
 });
 
-const db = firebase.firestore();
-const auth = firebase.auth();
-const storage = firebase.storage();
+const db = firebase.firestore(); // Banco de Dados Realtime
+const auth = firebase.auth(); // Sistema de Login
+const storage = firebase.storage(); // Upload de Arquivos
 const functions = firebase.functions();
 
 /*
