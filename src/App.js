@@ -8,7 +8,7 @@ function App() {
   * Depois que o usuário logar, iremos armazenar dentro de user, para futuramente sabermos qual tela exibir para ele
   * a tela de login, ou caso ele esteja logado, exibiremos outra tela.
   */
-  const [user, setUser] = useState("Gabriel");
+  const [user, setUser] = useState();
 
   /*
    * Como se fosse um constructor do php, c#. Ou seja é chamado quando nosso 

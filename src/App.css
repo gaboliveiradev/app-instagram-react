@@ -8,7 +8,7 @@ body {
     background-color: rgb(220, 220, 220);
 }
 
-/* ============ Estilzando o Cabeçario ============*/
+/* ============ Estilzando o Cabeçario ============ */
 
 .header {
     background-color: #fff;
@@ -76,4 +76,71 @@ body {
 .header__info__logado a:hover {
     transition: 1s;
     background-color: rgb(81, 81, 161);
+}
+
+/* ============ Estilzando a Modal Criar Conta ============ */
+
+.modal__criar__conta {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(0, 0, 0, 0.5);
+}
+
+.form__criar__conta {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.form__criar__conta form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__criar__conta form input {
+    padding: 10px;
+    margin: 5px 0;
+    outline: none;
+}
+
+.form__criar__conta a {
+    display: flex;
+    justify-content: center;
+}
+
+.form__criar__conta h2 {
+    margin-bottom: 10px;
+}
+
+.form__criar__conta input[type="submit"] {
+    background-color: rgb(136, 136, 226);
+    color: #fff;
+    font-weight: bold;
+    border: 0px;
+    cursor: pointer;
+}
+
+.form__criar__conta input[type="submit"]:hover {
+    background-color: rgb(108, 108, 199);
+    transition: 1s;
+}
+
+.close__modal__criar {
+    text-align: right;
+    cursor: pointer;
+    color: rgb(136, 136, 226);
+}
+
+.close__modal__criar:hover {
+    color: rgb(108, 108, 199);
+    transition: 1s;
 }
