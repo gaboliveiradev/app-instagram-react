@@ -1,4 +1,11 @@
-import firebase from 'firebase';
+/*
+ * Devido as atulizações do firebase, está é a nova forma de importar suas dependencias.
+ */
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import 'firebase/compat/storage';
+import 'firebase/compat/functions';
 
 /*
  * Add o array de dados de conexão dentro da função firebase.initializeApp(), para desta forma,
@@ -22,4 +29,4 @@ const functions = firebase.functions();
 /*
  * Exportando nossas constantes definidas acima, para conseguirmos utilizar.
  */
-export {db, auth,storage, functions};
+export {db, auth, storage, functions};
