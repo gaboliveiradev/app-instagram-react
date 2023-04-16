@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
 function Header(props) {
+    useEffect(()=>{
+        props.setUser("Gabriel");
+    }, []);
+
     return (
         <><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"></link><div className="header">
             <div className="header__logo">

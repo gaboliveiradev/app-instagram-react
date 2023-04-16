@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { db } from './firebase.js';
 import { useEffect, useState } from 'react';
@@ -24,10 +23,12 @@ function App() {
    * Passando os dados da useState via props para nosso componente header
    * Props: é um estágio do desenvolvimento que acontece quando precisamos obter dados que estão 
    * em várias camadas na árvore de componente react
+   * 
+   * UMA ALTERNATIVA É UTILIZAR O REDUX
    */
   return (
     <div className="App">
-      <Header user={user}></Header>
+      <Header setUser={setUser} user={user}></Header>
     </div>
   );
 }
