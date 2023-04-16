@@ -144,3 +144,74 @@ body {
     color: rgb(108, 108, 199);
     transition: 1s;
 }
+
+/* ============ Estilzando a Modal de Upload ============ */
+
+.modal__upload {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(0, 0, 0, 0.5);
+}
+
+.form__upload {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.form__upload form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__upload form input {
+    padding: 10px;
+    margin: 5px 0;
+    outline: none;
+}
+
+.form__upload a {
+    display: flex;
+    justify-content: center;
+}
+
+.form__upload h2 {
+    margin-bottom: 10px;
+}
+
+.form__upload input[type="submit"] {
+    background-color: rgb(136, 136, 226);
+    color: #fff;
+    font-weight: bold;
+    border: 0px;
+    cursor: pointer;
+}
+
+.form__upload input[type="submit"]:hover {
+    background-color: rgb(108, 108, 199);
+    transition: 1s;
+}
+
+.close__modal__upload {
+    text-align: right;
+    cursor: pointer;
+    color: rgb(136, 136, 226);
+}
+
+.close__modal__upload:hover {
+    color: rgb(108, 108, 199);
+    transition: 1s;
+}
+
+.form__upload form progress {
+    width: 100%;
+}
