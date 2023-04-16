@@ -1,9 +1,58 @@
 import { useEffect, useState } from 'react';
+import { auth } from './../firebase.js';
 
 function Header(props) {
     useEffect(()=>{
         
     }, []);
+
+    function criarConta(e) {
+        e.preventDefault();
+
+        // Recuperando os dados dos input do criar conta
+        let email = document.getElementById('email-cadastro').value;
+        let username = document.getElementById('username-cadastro').value;
+        let senha = document.getElementById('senha-cadastro').value;
+
+        // Criar conta firebase.
+        auth.createUserWithEmailAndPassword(email, senha)
+        .then((authUser)=>{
+            authUser.user.updateProfile({
+                displayName: username
+            })
+
+            alert('Conta Criada com Sucesso!');
+
+            let modal = document.querySelector('.modal__criar__conta');
+            modal.style.display = "none";
+        }).catch((error)=>{
+            alert(error.message);
+
+            document.getElementById('email-cadastro').value = "";
+            document.getElementById('username-cadastro').value = "";
+            document.getElementById('senha-cadastro').value = "";
+        });
+    }
+
+    function logar(e) {
+        e.preventDefault();
+
+        let email = document.getElementById('email-login').value;
+        let senha = document.getElementById('senha-login').value;
+
+        /*
+         * Caso o nosso metodo signInWithEmailAndPassword de certo então (then) executa isso, se pegar um erro (catch) executa outra coisa.
+         */
+        auth.signInWithEmailAndPassword(email, senha)
+        .then((auth)=> {
+            props.setUser(auth.user.displayName);
+        }).catch((error)=>{
+            alert(error.message);
+
+            document.getElementById('email-login').value = "";
+            document.getElementById('senha-login').value = "";
+        })
+    }
 
     function abrirModalCriarConta(e) {
         e.preventDefault();
@@ -27,10 +76,10 @@ function Header(props) {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/840px-Instagram_logo.svg.png" width="180" />
                 </a>
                 <h2>Criar Conta</h2>
-                <form>
-                    <input type="text" placeholder="seu email" />
-                    <input type="text" placeholder="seu username" />
-                    <input type="password" placeholder="sua senha" />
+                <form onSubmit={(e)=>criarConta(e)}>
+                    <input id="email-cadastro" type="text" placeholder="seu email" />
+                    <input id="username-cadastro" type="text" placeholder="seu username" />
+                    <input id="senha-cadastro" type="password" placeholder="sua senha" />
                     <input type="submit" value="Criar Conta!" />
                 </form>
             </div>
@@ -50,9 +99,9 @@ function Header(props) {
                 </div>
                 :
                 <div className="header__login__form">
-                    <form>
-                        <input type="text" placeholder='digite seu email' />
-                        <input type="password" placeholder='digite sua senha' />
+                    <form onSubmit={(e)=>logar(e)}>
+                        <input id="email-login" type="text" placeholder='digite seu email' />
+                        <input id="senha-login" type="password" placeholder='digite sua senha' />
                         <input type="submit" name="bnt-entrar" value="Logar" />
                     </form>
                     <div className="btn__criar__conta">
