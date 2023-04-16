@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { db } from './firebase.js';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Header from './components/Header';
 
 function App() {
   /*
@@ -9,12 +10,12 @@ function App() {
    * aplicativo é montado/inicializado.
    */
   useEffect(()=>{
-    console.log(db);
+    
   },[])
 
   return (
     <div className="App">
-      
+      <Header></Header>
     </div>
   );
 }
