@@ -9,12 +9,22 @@ function App() {
   * a tela de login, ou caso ele esteja logado, exibiremos outra tela.
   */
   const [user, setUser] = useState();
-
+  const [posts, setPosts] = useState([]);
   /*
    * Como se fosse um constructor do php, c#. Ou seja é chamado quando nosso 
    * aplicativo é montado/inicializado.
    */
   useEffect(()=>{
+    /* Atualizar nossa aplicação em tempo real */
+    /* Desta forma irá exibir as postagens pelo tempo em orde decresente */
+    db.collection('posts').orderBy('timestamp', 'desc').onSnapshot((snapshot)=>{
+      setPosts(snapshot.docs.map((document)=>{
+        return {
+          id: document.id,
+          info: document.data()
+        }
+      }))
+    });
     
   },[])
 
@@ -29,6 +39,26 @@ function App() {
   return (
     <div className="App">
       <Header setUser={setUser} user={user}></Header>
+
+      {
+        posts.map((val)=>{
+          return (
+            <div className="post__box">
+              <div className="post__single">
+                <div className='post__conta'>
+                  <h3><i class="bi bi-person-fill"></i> {val.info.userName}</h3>
+                </div>
+                <div className="post__titulo">
+                  <h3>{val.info.titulo}</h3>
+                </div>
+                <div className="post__image">
+                  <img src={val.info.image} />
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
     </div>
   );
 }

@@ -215,3 +215,26 @@ body {
 .form__upload form progress {
     width: 100%;
 }
+
+/* ============ Estilzando o Formato de cada Postagem + Feed ============ */
+
+.post__box {
+    text-align: left;
+    margin: 80px;
+    background-color: #fff;
+    padding: 20px;
+    width: 900px;
+}
+
+.post__conta {
+    padding: 10px 0;
+}
+
+.post__image {
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+}

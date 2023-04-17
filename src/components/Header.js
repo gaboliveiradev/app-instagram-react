@@ -109,6 +109,8 @@ function Header(props) {
                 alert('Upload Realizado com Sucesso!');
 
                 document.getElementById('form-upload').reset();
+
+                fecharModalUpload();
             })
         });
     }
