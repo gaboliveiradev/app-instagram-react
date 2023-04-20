@@ -18,7 +18,7 @@ function App() {
   useEffect(()=>{
     // Fazendo com que não deslogue após reiniciar o navegador
     auth.onAuthStateChanged((val)=>{
-      setUser(val.displayName);
+      if(val != null) setUser(val.displayName);
     })
 
     /* Atualizar nossa aplicação em tempo real */
