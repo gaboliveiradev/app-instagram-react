@@ -48,7 +48,7 @@ function App() {
       {
         posts.map((val)=>{
           return (
-            <Feed info={val.info} id={val.id}></Feed>
+            <Feed info={val.info} id={val.id} user={user}></Feed>
           );
         })
       }

@@ -1,11 +1,22 @@
-import { db, auth } from './firebase.js';
+import firebase from 'firebase/compat/app'
+import { db } from './../firebase.js';
 import { useEffect, useState } from 'react';
 
 function Feed(props) {
 
     function comentar(id, e) {
         e.preventDefault();
-        alert("Comentando no post "+ id);
+
+        let comentario = document.querySelector('#comentario-'+id).value;
+        
+        db.collection('posts').doc(id).collection('comentarios').add({
+            nome: props.user,
+            comentario: comentario
+        });
+
+        document.querySelector('#comentario-'+id).value = "";
+
+        alert("Você comentou em um post!");
     }
 
     return (
@@ -25,7 +36,7 @@ function Feed(props) {
               </div>
               <div className="post__comentar">
                 <form onSubmit={(e)=>comentar(props.id, e)}>
-                  <input type="text" name="comentario" placeholder="escreva um comentário" />
+                  <input id={"comentario-"+props.id} type="text" placeholder="escreva um comentário" />
                   <input type="submit" name="bnt-comentar" value="Comentar" />
                 </form>
               </div>
