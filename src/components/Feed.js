@@ -1,3 +1,6 @@
+import { db, auth } from './firebase.js';
+import { useEffect, useState } from 'react';
+
 function Feed(props) {
 
     function comentar(id, e) {
