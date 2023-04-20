@@ -85,7 +85,8 @@ function Header(props) {
     function uploadPost(e) {
         e.preventDefault(); // Evitar a ação padrão do formulário, enviar e atualizar a página.
 
-        let titulo = document.getElementById('titulo-puplicacao').value;
+        let titulo = document.getElementById('titulo-publicacao').value;
+        let descricao = document.getElementById('descricao-publicacao').value;
 
         const uploadTask = storage.ref(`images/${file.name}`).put(file);
         uploadTask.on("state_changed", (snapshot)=>{
@@ -98,6 +99,7 @@ function Header(props) {
             .then((url)=>{
                 db.collection('posts').add({
                     titulo: titulo,
+                    descricao: descricao,
                     image: url,
                     userName: props.user,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -143,7 +145,8 @@ function Header(props) {
                 <h2>Criar Publicação</h2>
                 <form id="form-upload" onSubmit={(e)=>uploadPost(e)}>
                     <progress id="progress-upload" value={progress}></progress>
-                    <input id="titulo-puplicacao" type="text" placeholder="título da publicação" />
+                    <input id="titulo-publicacao" type="text" placeholder="título da publicação" />
+                    <textarea id="descricao-publicacao" type="text" placeholder="descreva a sua publicação" rows="15" />
                     <input onChange={(e)=>setFile(e.target.files[0])} name="file" type="file" />
                     <input type="submit" value="Publicar" />
                 </form>

@@ -173,7 +173,7 @@ body {
     flex-direction: column;
 }
 
-.form__upload form input {
+.form__upload form input, .form__upload form textarea{
     padding: 10px;
     margin: 5px 0;
     outline: none;
@@ -220,21 +220,49 @@ body {
 
 .post__box {
     text-align: left;
-    margin: 80px;
     background-color: #fff;
-    padding: 20px;
-    width: 900px;
+    width: 800px;
+    margin: 20px auto;
+}
+
+.post__single {
+    background-color: #fff;
+    width: 100%;
 }
 
 .post__conta {
-    padding: 10px 0;
+    padding: 10px;
 }
 
-.post__image {
-    border: 1px solid gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+.post__single .post__image > img {
+    width: 100%;
+}
+
+.post__titulo {
     padding: 10px;
+    background-image: #fff;
+}
+
+.post__descricao p {
+    padding: 10px;
+}
+
+.post__comentar {
+    padding: 10px;
+}
+
+.post__comentar form input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    outline: none;
+    border: none;
+}
+
+
+.post__comentar form input[type="submit"] {
+    padding: 10px;
+    width: 20%;
+    background-color: rgb(119, 119, 196);
+    border: none;
+    color: #fff;
 }

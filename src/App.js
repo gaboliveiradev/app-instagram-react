@@ -25,7 +25,7 @@ function App() {
         }
       }))
     });
-    
+
   },[])
 
 
@@ -48,11 +48,20 @@ function App() {
                 <div className='post__conta'>
                   <h3><i class="bi bi-person-fill"></i> {val.info.userName}</h3>
                 </div>
+                <div className="post__image">
+                  <img src={val.info.image} />
+                </div>
                 <div className="post__titulo">
                   <h3>{val.info.titulo}</h3>
                 </div>
-                <div className="post__image">
-                  <img src={val.info.image} />
+                <div className="post__descricao">
+                  <p>{val.info.descricao}</p>
+                </div>
+                <div className="post__comentar">
+                  <form>
+                    <input type="text" name="comentario" placeholder="escreva um comentário" />
+                    <input type="submit" name="bnt-comentar" value="Comentar" />
+                  </form>
                 </div>
               </div>
             </div>
