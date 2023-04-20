@@ -1,5 +1,5 @@
 import './App.css';
-import { db } from './firebase.js';
+import { db, auth } from './firebase.js';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Feed from './components/Feed';
@@ -16,6 +16,11 @@ function App() {
    * aplicativo é montado/inicializado.
    */
   useEffect(()=>{
+    // Fazendo com que não deslogue após reiniciar o navegador
+    auth.onAuthStateChanged((val)=>{
+      setUser(val.displayName);
+    })
+
     /* Atualizar nossa aplicação em tempo real */
     /* Desta forma irá exibir as postagens pelo tempo em orde decresente */
     db.collection('posts').orderBy('timestamp', 'desc').onSnapshot((snapshot)=>{

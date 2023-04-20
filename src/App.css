@@ -78,6 +78,10 @@ body {
     background-color: rgb(81, 81, 161);
 }
 
+.btn__logout {
+    background-color: rgb(136, 79, 79) !important;
+}
+
 /* ============ Estilzando a Modal Criar Conta ============ */
 
 .modal__criar__conta {
@@ -257,7 +261,6 @@ body {
     outline: none;
     border: none;
 }
-
 
 .post__comentar form input[type="submit"] {
     padding: 10px;

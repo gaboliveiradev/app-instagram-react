@@ -50,6 +50,7 @@ function Header(props) {
         auth.signInWithEmailAndPassword(email, senha)
         .then((auth)=> {
             props.setUser(auth.user.displayName);
+            window.location.href = "/";
         }).catch((error)=>{
             alert(error.message);
 
@@ -117,6 +118,14 @@ function Header(props) {
         });
     }
 
+    function logout(e) {
+        e.preventDefault(); // Impossibilita que o navegador recarregue a página ao clicar
+        auth.signOut().then((val)=>{
+            props.setUser(null);
+            window.location.href = "/";
+        })
+    }
+
     return (
         <>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"></link>
@@ -164,6 +173,7 @@ function Header(props) {
                 <div className="header__info__logado">
                     <p><i class="bi bi-person-circle"></i> Olá, <b>{props.user}</b></p>
                     <a href="#" onClick={(e)=>abrirModalUpload(e)}>Fazer Publicação</a>
+                    <a href="#" onClick={(e)=>logout(e)} className='btn__logout'>Logout</a>
                 </div>
                 :
                 <div className="header__login__form">
