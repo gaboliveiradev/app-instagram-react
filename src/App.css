@@ -269,3 +269,18 @@ body {
     border: none;
     color: #fff;
 }
+
+/* ============ Estilzando os Comentários na Publicação ============ */
+
+.comments__single {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.post__comentar p {
+    font-size: small;
+    color: red;
+}
+
