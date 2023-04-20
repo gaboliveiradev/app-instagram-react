@@ -2,6 +2,7 @@ import './App.css';
 import { db } from './firebase.js';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
+import Feed from './components/Feed';
 
 function App() {
   /*
@@ -28,7 +29,6 @@ function App() {
 
   },[])
 
-
   /* 
    * Passando os dados da useState via props para nosso componente header
    * Props: é um estágio do desenvolvimento que acontece quando precisamos obter dados que estão 
@@ -43,28 +43,7 @@ function App() {
       {
         posts.map((val)=>{
           return (
-            <div className="post__box">
-              <div className="post__single">
-                <div className='post__conta'>
-                  <h3><i class="bi bi-person-fill"></i> {val.info.userName}</h3>
-                </div>
-                <div className="post__image">
-                  <img src={val.info.image} />
-                </div>
-                <div className="post__titulo">
-                  <h3>{val.info.titulo}</h3>
-                </div>
-                <div className="post__descricao">
-                  <p>{val.info.descricao}</p>
-                </div>
-                <div className="post__comentar">
-                  <form>
-                    <input type="text" name="comentario" placeholder="escreva um comentário" />
-                    <input type="submit" name="bnt-comentar" value="Comentar" />
-                  </form>
-                </div>
-              </div>
-            </div>
+            <Feed info={val.info} id={val.id}></Feed>
           );
         })
       }
